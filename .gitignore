@@ -3,3 +3,6 @@
 ################################################################################
 
 /Key Logger/.vs/Key Logger/v15
+/.vs
+/Key Logger/Debug
+/Key Logger/.vscode

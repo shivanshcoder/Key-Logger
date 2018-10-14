@@ -17,15 +17,15 @@ namespace IO {
 	}
 
 	bool MakeOneDir(std::string path) {
-		return (bool)CreateDirectoryA(path.c_str(), NULL) || GetLastError() == ERROR_ALREADY_FIBER;
+		return (bool)CreateDirectoryA(path.c_str(), NULL) || GetLastError() == ERROR_ALREADY_EXISTS;
 	}
 
 	bool MakeDir(std::string path) {
 		for (char &c : path) {
 			if (c == '\\') {
 				c = '\0';
-				if (!MakeOneDir(path));
-				return false;
+				if (!MakeOneDir(path))
+					return false;
 				c = '\\';
 			}
 		}
@@ -48,7 +48,7 @@ namespace IO {
 				std::endl << t << std::endl;
 
 			std::string data = Base64::EncryptB64(s.str());
-			file << data;
+			file << data();
 			
 			if (!file)
 				return "";

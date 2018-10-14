@@ -13,7 +13,8 @@ public:
 		:vkName(vk), Name(name) {}
 
 
-private:
+	//NOTE maybe change them to private
+public:
 	std::string vkName;
 	std::string Name;
 };

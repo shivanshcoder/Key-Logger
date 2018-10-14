@@ -15,7 +15,7 @@ private:
 	//Counter
 	long repeatCount = -1L;
 
-	std::chrono::milliseconds interval = std::chrono::microseconds(0);
+	std::chrono::milliseconds interval = std::chrono::milliseconds(0);
 
 	std::function<void(void)> funct = nullptr;
 
@@ -23,8 +23,7 @@ private:
 		std::this_thread::sleep_for(interval);
 
 		if (alive)
-			//URGNET call the specified function
-			;
+			Function()();
 	}
 
 	void ThreadFunc() {
@@ -50,13 +49,14 @@ public:
 
 	void Start(bool Async = true) {
 
-		if (!alive)
+		if (alive)
 			return;
 		alive = true;
 		repeatCount = callNumber;
 
 		if (Async)
-			thread = std::thread(ThreadFunc, this);
+			thread = std::thread(&Timer::ThreadFunc, this);
+		
 		else
 			this->ThreadFunc();
 	}
@@ -68,7 +68,7 @@ public:
 
 	bool IsAlive()const { return alive; }
 
-	void RepeastCounter(const long r) {
+	void RepeatCounter(const long r) {
 		if (alive)
 			return;
 		callNumber = r;
@@ -84,6 +84,15 @@ public:
 		interval = std::chrono::milliseconds(i);
 	}
 
+	void SetFunction(std::function<void(void)> function) {
+		funct = function;
+	}
+
+	unsigned long Interval() const { return interval.count(); }
+
+	const std::function<void(void)>&Function() const {
+		return funct;
+	}
 };
 
 

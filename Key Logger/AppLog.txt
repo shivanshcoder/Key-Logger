@@ -1,0 +1,24 @@
+{ 14:10:2018 0:15:7 } 
+Hook Started and Timer Started!
+{ 14:10:2018 0:27:37 } 
+Hook Started and Timer Started!
+{ 14:10:2018 0:28:31 } 
+Hook Started and Timer Started!
+{ 14:10:2018 0:29:45 } 
+Hook Started and Timer Started!
+{ 14:10:2018 0:30:16 } 
+Hook Started and Timer Started!
+{ 14:10:2018 0:30:47 } 
+Hook Started and Timer Started!
+{ 14:10:2018 0:34:31 } 
+Hook Started and Timer Started!
+{ 14:10:2018 0:36:34 } 
+Hook Started and Timer Started!
+{ 14:10:2018 0:36:58 } 
+Hook Started and Timer Started!
+{ 14:10:2018 0:37:16 } 
+Mail was not sent! Error code: 259
+{ 14:10:2018 0:37:16 } 
+<From SendMail> Return Code:-858993460
+{ 14:10:2018 0:37:23 } 
+Mail was not sent! Error code: 259
